@@ -31,8 +31,10 @@ if [ "$enable_dns" != "y" ] && [ "$enable_dns" != "Y" ]; then
   exit 0
 fi
 
-# Ask user if they want to enable DNS unlock for Taiwan or Hong Kong
-read -p "请问您想使用台湾地区解锁(t)或者是香港地区(h)解锁? (t/h) " dns_location
+# Ask user which region they want to unlock
+echo -e "请问您想要解锁哪个地区？\n"
+echo -e "| 地区 | 可解锁的流媒体 |\n|------|---------------|\n| 台湾 | Netflix, Dazn, Spotify, KKTV, LiTV, MyVideo, 4GTV.TV, LineTV.TW, Hami-Video, CatchPlay+, HBO GO Asia, Bahamut Anime |\n| 香港 | Dazn, Disney+, Netflix, Youtube, Viu.TV, MyTVSuper, HBO Go Asia, Bilibili |\n"
+read -p "(请输入t或h) " dns_location
 echo -e ""
 if [ "$dns_location" != "t" ] && [ "$dns_location" != "T" ] && [ "$dns_location" != "h" ] && [ "$dns_location" != "H" ]; then
   echo "输入错误，脚本已退出，DNS解锁未被应用"
